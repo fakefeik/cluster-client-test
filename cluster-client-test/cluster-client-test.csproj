@@ -7,9 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Vostok.ClusterClient.Core" Version="0.1.20" />
+      <PackageReference Include="Vostok.ClusterClient.Core" Version="0.1.21" />
       <PackageReference Include="Vostok.ClusterClient.Transport" Version="0.1.13" />
-        <PackageReference Include="Vostok.Core.App.Kontur" Version="1.0.38" />
+        <PackageReference Include="Vostok.Core.App.Kontur" Version="1.0.47" />
         <PackageReference Include="System.Net.Sockets" Version="4.3.0" />
     </ItemGroup>
 

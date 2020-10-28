@@ -35,11 +35,7 @@ namespace cluster_client_test
             var request = Request.Post("Search")
                 .WithContent(new byte[10])
                 .WithHeader("Content-Type", "application/x-grobuf");
-            Parallel.For(0, 10, i =>
-                Task.WaitAll(Enumerable.Range(0, 100_000).Select(async x =>
-                {
-                    await clusterClient.SendAsync(request, TimeSpan.FromSeconds(10)).ConfigureAwait(false);
-                }).ToArray()));
+            Parallel.For(0, 10, i => clusterClient.Send(request, TimeSpan.FromSeconds(10)));
         }
     }
 }

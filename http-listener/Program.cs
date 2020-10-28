@@ -26,11 +26,10 @@ namespace http_listener
             HttpListener.BeginGetContext(BeginProcessAsync, null);
             var context = HttpListener.EndGetContext(asyncResult);
 
-            // Console.WriteLine(context.Request.ContentType);
-            if (context.Request.ContentType != "application/x-grobuf")
+            var request = context.Request;
+            if (request.ContentType != "application/x-grobuf")
             {
-                Console.WriteLine("Хуйня:");
-                Console.WriteLine(context.Request.ContentType);
+                Console.WriteLine($"ContentType: '{request.ContentType}', ContentLength: {request.ContentLength64}");
                 HttpListener.Stop();
                 return;
             }
