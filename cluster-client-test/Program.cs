@@ -32,10 +32,12 @@ namespace cluster_client_test
             });
 
 
-            var request = Request.Post("Search")
-                .WithContent(new byte[10])
-                .WithHeader("Content-Type", "application/x-grobuf");
-            Parallel.For(0, 10, i => clusterClient.Send(request, TimeSpan.FromSeconds(10)));
+            Parallel.For(0, 2, i => clusterClient.Send(
+                Request.Post("Search")
+                    .WithContent(new byte[10])
+                    .WithHeader("Content-Type", "application/x-grobuf"),
+                TimeSpan.FromSeconds(10)
+            ));
         }
     }
 }
